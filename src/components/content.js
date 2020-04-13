@@ -24,23 +24,18 @@ function Content({ content, article, articleTimeout, onCloseArticle }) {
   return (
     <article
       id="content"
-      className={`active ${articleTimeout ? 'timeout' : ''}`}
+      className={`content active ${articleTimeout ? 'timeout' : ''}`}
     >
       <h2 className="major">{article}</h2>
-      <span className="image main">
-        <img src={content[prompt].url} alt="" />
-      </span>
-      <div style={{ textAlign: 'center', margin: '0 0 8px 0' }}>
-        <button onClick={() => randomize()}>Show me another</button>
+      <div className="imageContainer">
+        <span className="image main">
+          <img src={content[prompt].url} alt="" />
+        </span>
+        <span>
+          <button onClick={() => randomize()}>Show me another</button>
+        </span>
       </div>
-      <div
-        contentEditable="true"
-        style={{
-          height: '300px',
-          border: 'solid 1px white',
-          borderRadius: '5px'
-        }}
-      >
+      <div className="editor" contentEditable="true">
         Now go on and write to your heart's content here
       </div>
       {close}
