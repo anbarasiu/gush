@@ -1,11 +1,14 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import getRandomInt from '../helper/randomizer';
+import Canvas from './Canvas';
 
 function Content({ content, article, articleTimeout, onCloseArticle }) {
   const [prompt, setPrompt] = useState(
     getRandomInt(0, content && content.length)
   );
+  const [text, setText] = useState('');
+  const [isImageGenerated, setIsImageGenerated] = useState(false);
 
   let close = (
     <div
@@ -35,9 +38,19 @@ function Content({ content, article, articleTimeout, onCloseArticle }) {
           <button onClick={() => randomize()}>Show me another</button>
         </span>
       </div>
-      <div className="editor" contentEditable="true">
-        Now go on and write to your heart's content here
+      <textarea
+        onChange={(e) => setText(e.target.value)}
+        className="editor"
+        placeholder="Now go on and write to your heart's content here"
+      ></textarea>
+      <div className="center">
+        <button onClick={() => setIsImageGenerated(true)}>Frame It!</button>
       </div>
+      {isImageGenerated && (
+        <div className="center">
+          <Canvas text={text} />
+        </div>
+      )}
       {close}
     </article>
   );
@@ -49,7 +62,7 @@ Content.propTypes = {
   articleTimeout: PropTypes.bool,
   onCloseArticle: PropTypes.func,
   timeout: PropTypes.bool,
-  setWrapperRef: PropTypes.func.isRequired
+  setWrapperRef: PropTypes.func.isRequired,
 };
 
 export default Content;

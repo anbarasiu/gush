@@ -2,6 +2,8 @@
 .content {
   .editor {
     height: 300px;
+    width: 100%;
+    background: black;
     border: solid 1px white;
     border-radius: 5px;
     padding: 4px;
@@ -14,5 +16,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .center {
+    text-align: center;
+    margin: 8px;
   }
 }

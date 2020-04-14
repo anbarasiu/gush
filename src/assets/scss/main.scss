@@ -18,14 +18,14 @@
     medium: '(max-width: 980px)',
     small: '(max-width: 736px)',
     xsmall: '(max-width: 480px)',
-    xxsmall: '(max-width: 360px)'
+    xxsmall: '(max-width: 360px)',
   )
 );
 
 @include skel-layout(
   (
     reset: 'full',
-    boxModel: 'border'
+    boxModel: 'border',
   )
 );
 
@@ -44,6 +44,7 @@
 @import 'components/table';
 @import 'components/button';
 @import 'components/content';
+@import 'components/canvas';
 
 // Layout.
 
