@@ -9,7 +9,7 @@ function Content({ content, article, articleTimeout, onCloseArticle }) {
     getRandomInt(0, content && content.length)
   );
   const [text, setText] = useState('');
-  const [isImageGenerated, setIsImageGenerated] = useState(false);
+  const [shouldFrame, setShouldFrame] = useState(false);
 
   let close = (
     <div
@@ -23,6 +23,10 @@ function Content({ content, article, articleTimeout, onCloseArticle }) {
   let randomize = () => {
     let prompt = getRandomInt(0, content && content.length);
     setPrompt(prompt);
+  };
+
+  let isFrameUpdated = () => {
+    setShouldFrame(false);
   };
 
   return (
@@ -47,15 +51,17 @@ function Content({ content, article, articleTimeout, onCloseArticle }) {
             placeholder="Now go on and write to your heart's content here"
           ></textarea>
           <div className="center">
-            <button onClick={() => setIsImageGenerated(true)}>Frame It!</button>
+            <button onClick={() => setShouldFrame(true)}>Frame It!</button>
           </div>
         </div>
-        <div label="Download and Share" isOpen={isImageGenerated}>
-          {isImageGenerated && (
-            <div className="center">
-              <Canvas text={text} />
-            </div>
-          )}
+        <div label="Download and Share" isOpen>
+          <div className="center">
+            <Canvas
+              text={text}
+              shouldFrame={shouldFrame}
+              isFrameUpdated={isFrameUpdated}
+            />
+          </div>
         </div>
       </Accordion>
       {close}

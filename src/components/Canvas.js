@@ -4,24 +4,37 @@ import output2 from '../images/result2.jpg';
 import output3 from '../images/result3.jpg';
 import output4 from '../images/result4.jpg';
 import getRandomInt from '../helper/randomizer';
+import addTextCanvas from '../helper/addTextCanvas';
+
 const outputFiles = [output1, output2, output3, output4];
+
 class Canvas extends React.Component {
   constructor(props) {
     super(props);
     this.downloadImage = this.downloadImage.bind(this);
+    this.updateCanvas = this.updateCanvas.bind(this);
   }
-  componentDidMount() {
-    const { text } = this.props;
-    const canvas = this.refs.canvas;
-    const ctx = canvas.getContext('2d');
-    const img = this.refs.image;
 
-    img.onload = () => {
-      ctx.drawImage(img, 0, 0, 1080, 1080);
-      ctx.font = '32px Courier';
-      this.wrapText(ctx, text, 32, 32, 1080, 48);
-      this.watermark(ctx);
-    };
+  shouldComponentUpdate(newProps) {
+    let { shouldFrame } = newProps;
+    return shouldFrame;
+  }
+
+  updateCanvas() {
+    const { text } = this.props;
+    let { isFrameUpdated } = this.props;
+    const canvas = this.refs.canvas;
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      const img = this.refs.image;
+      if (img) {
+        ctx.drawImage(img, 0, 0, 1080, 1080);
+        ctx.font = '32px Courier';
+        addTextCanvas(ctx, text, 32, 32, 1080, 48);
+        this.watermark(ctx);
+      }
+    }
+    isFrameUpdated();
   }
 
   watermark = (context) => {
@@ -29,28 +42,6 @@ class Canvas extends React.Component {
     let x = 800;
     let y = 1050;
     context.fillText(line, x, y);
-  };
-
-  wrapText = (context, text, x, y, maxWidth, lineHeight) => {
-    var lines = text.split('\n');
-    for (var m = 0; m < lines.length; m++) {
-      var words = lines[m].split(' ');
-      var line = '';
-      for (var n = 0; n < words.length; n++) {
-        var testLine = line + words[n] + ' ';
-        var metrics = context.measureText(testLine);
-        var testWidth = metrics.width;
-        if (testWidth > maxWidth && n > 0) {
-          context.fillText(line, x, y);
-          line = words[n] + ' ';
-          y += lineHeight;
-        } else {
-          line = testLine;
-        }
-        y += lineHeight;
-      }
-      context.fillText(line, x, y);
-    }
   };
 
   downloadImage = () => {
@@ -66,6 +57,7 @@ class Canvas extends React.Component {
 
   render() {
     let output = outputFiles[getRandomInt(0, 3)];
+    this.updateCanvas();
     return (
       <div>
         <div className="canvas-container">
@@ -79,13 +71,15 @@ class Canvas extends React.Component {
             Download &#8681;
           </button>
         </div>
-        <img
-          ref="image"
-          width={200}
-          height={200}
-          src={output}
-          style={{ display: 'none' }}
-        />
+        {output && (
+          <img
+            ref="image"
+            width={200}
+            height={200}
+            src={output}
+            style={{ display: 'none' }}
+          />
+        )}
       </div>
     );
   }
