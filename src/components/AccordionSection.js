@@ -26,16 +26,13 @@ class AccordionSection extends Component {
           padding: '5px 10px',
         }}
       >
-        <div
-          onClick={onClick}
-          style={{ cursor: 'pointer', fontWeight: 'bold', color: 'lightgray' }}
-        >
+        <h4 onClick={onClick} style={{ cursor: 'pointer', color: 'lightgray' }}>
           {label}
           <div style={{ float: 'right' }}>
             {!isOpen && <span>&#9650;</span>}
             {isOpen && <span>&#9660;</span>}
           </div>
-        </div>
+        </h4>
         {isOpen && (
           <div
             style={{

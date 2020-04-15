@@ -50,7 +50,7 @@ function Content({ content, article, articleTimeout, onCloseArticle }) {
             <button onClick={() => setIsImageGenerated(true)}>Frame It!</button>
           </div>
         </div>
-        <div label="Download and Share">
+        <div label="Download and Share" isOpen={isImageGenerated}>
           {isImageGenerated && (
             <div className="center">
               <Canvas text={text} />

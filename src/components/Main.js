@@ -13,8 +13,8 @@ class Main extends React.Component {
         return <Content content={stories} {...this.props} />;
       case 'word':
         return <Content content={words} {...this.props} />;
-      case 'contact':
-        return <Contact />;
+      default:
+        return <></>;
     }
   }
   render() {
@@ -35,6 +35,7 @@ class Main extends React.Component {
         style={this.props.timeout ? { display: 'flex' } : { display: 'none' }}
       >
         {this.renderContainer(article)}
+        {close}
       </div>
     );
   }
@@ -46,7 +47,7 @@ Main.propTypes = {
   articleTimeout: PropTypes.bool,
   onCloseArticle: PropTypes.func,
   timeout: PropTypes.bool,
-  setWrapperRef: PropTypes.func.isRequired
+  setWrapperRef: PropTypes.func.isRequired,
 };
 
 export default Main;

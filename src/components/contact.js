@@ -1,8 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import pic01 from '../images/pic01.jpg';
-import pic02 from '../images/pic02.jpg';
-import pic03 from '../images/pic03.jpg';
 
 class Contact extends React.Component {
   render() {
@@ -92,7 +89,7 @@ Contact.propTypes = {
   articleTimeout: PropTypes.bool,
   onCloseArticle: PropTypes.func,
   timeout: PropTypes.bool,
-  setWrapperRef: PropTypes.func.isRequired
+  setWrapperRef: PropTypes.func.isRequired,
 };
 
 export default Contact;

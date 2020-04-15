@@ -15,7 +15,7 @@ class IndexPage extends React.Component {
       articleTimeout: false,
       article: '',
       loading: 'is-loading',
-      pins: []
+      pins: [],
     };
     this.handleOpenArticle = this.handleOpenArticle.bind(this);
     this.handleCloseArticle = this.handleCloseArticle.bind(this);
@@ -28,7 +28,7 @@ class IndexPage extends React.Component {
     this.setState({ pins });
     this.timeoutId = setTimeout(() => {
       this.setState({ loading: '' });
-    }, 100);
+    }, 10);
     document.addEventListener('mousedown', this.handleClickOutside);
   }
 
@@ -46,37 +46,37 @@ class IndexPage extends React.Component {
   handleOpenArticle(article) {
     this.setState({
       isArticleVisible: !this.state.isArticleVisible,
-      article
+      article,
     });
 
     setTimeout(() => {
       this.setState({
-        timeout: !this.state.timeout
+        timeout: !this.state.timeout,
       });
     }, 325);
 
     setTimeout(() => {
       this.setState({
-        articleTimeout: !this.state.articleTimeout
+        articleTimeout: !this.state.articleTimeout,
       });
     }, 350);
   }
 
   handleCloseArticle() {
     this.setState({
-      articleTimeout: !this.state.articleTimeout
+      articleTimeout: !this.state.articleTimeout,
     });
 
     setTimeout(() => {
       this.setState({
-        timeout: !this.state.timeout
+        timeout: !this.state.timeout,
       });
     }, 325);
 
     setTimeout(() => {
       this.setState({
         isArticleVisible: !this.state.isArticleVisible,
-        article: ''
+        article: '',
       });
     }, 350);
   }

@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import output1 from '../images/result1.jpg';
 import output2 from '../images/result2.jpg';
