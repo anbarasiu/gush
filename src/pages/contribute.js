@@ -38,13 +38,13 @@ function Contribute(props) {
             <ExternalLink link="https://github.com/anbarasiu/gush">
               https://github.com/anbarasiu/gush
             </ExternalLink>
-          </section>
-          <br />
-          <section>
-            <h3>Improve Templates</h3>
-            Templates for the final generated image are beautiful free stock
-            images resized to 1080x1080 (Insta-worthy), overlayed with 60% white
-            background and 12px padding.
+            <section>
+              <br />
+              <h4>Templates for result images</h4>
+              Templates for the final generated image are beautiful free stock
+              images resized to 1080x1080 (Insta-worthy), overlayed with 60%
+              white background and 12px padding.
+            </section>
           </section>
           <br />
           <section>
