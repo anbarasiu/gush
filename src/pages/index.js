@@ -24,12 +24,13 @@ class IndexPage extends React.Component {
   }
 
   async componentDidMount() {
-    const pins = await fetchContent();
-    this.setState({ pins });
     this.timeoutId = setTimeout(() => {
       this.setState({ loading: '' });
-    }, 10);
+    }, 100);
     document.addEventListener('mousedown', this.handleClickOutside);
+    // Fetching content can happen in the background
+    const pins = await fetchContent();
+    this.setState({ pins });
   }
 
   componentWillUnmount() {

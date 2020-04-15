@@ -54,6 +54,17 @@ function Contribute(props) {
               </ExternalLink>
             </div>
             <div>Prompts aggregated from Pinterest </div>
+            <div>
+              <div>
+                Icons made by{' '}
+                <ExternalLink
+                  link="https://www.flaticon.com/authors/freepik"
+                  title="Freepik"
+                >
+                  Freepik
+                </ExternalLink>
+              </div>
+            </div>
           </section>
           <br />
           <section className="align-center">

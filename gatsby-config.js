@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'GUSH - Lets the words flow',
+    title: 'Gush - Lets the words flow',
     author: 'Anbarasi U',
     description: "Let's get the creative juices flowing",
   },
@@ -15,7 +15,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        // icon: '', // This path is relative to the root of the site.
+        icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-sass',
