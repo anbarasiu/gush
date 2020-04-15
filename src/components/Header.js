@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Header = props => (
+const Header = (props) => (
   <header id="header" style={props.timeout ? { display: 'none' } : {}}>
     <div className="logo">
       <span className="icon fa-diamond"></span>
@@ -9,8 +9,15 @@ const Header = props => (
     <div className="content">
       <div className="inner">
         <h1>Gush</h1>
-        <p>Let's jump over that block and get the creative juices flowing</p>
-        <p>What would you like to write today?</p>
+        <p>
+          <b>Let's jump over that block and get the creative juices flowing</b>
+        </p>
+        <p>
+          Get inspired with prompts, write & publish with beautiful pictures
+        </p>
+        <p>
+          <b>What would you like to write today?</b>
+        </p>
       </div>
     </div>
     <nav>
@@ -30,7 +37,7 @@ const Header = props => (
               props.onOpenArticle('poetry');
             }}
           >
-            String together Poetry
+            some Poetry?
           </button>
         </li>
         <li>
@@ -39,7 +46,7 @@ const Header = props => (
               props.onOpenArticle('word');
             }}
           >
-            Just show me words
+            Just words
           </button>
         </li>
         {/* <li>
@@ -58,7 +65,7 @@ const Header = props => (
 
 Header.propTypes = {
   onOpenArticle: PropTypes.func,
-  timeout: PropTypes.bool
+  timeout: PropTypes.bool,
 };
 
 export default Header;

@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import output from '../images/result1.jpg';
-
+import output1 from '../images/result1.jpg';
+import output2 from '../images/result2.jpg';
+import output3 from '../images/result3.jpg';
+import output4 from '../images/result4.jpg';
+import getRandomInt from '../helper/randomizer';
+const outputFiles = [output1, output2, output3, output4];
 class Canvas extends React.Component {
   constructor(props) {
     super(props);
@@ -17,8 +21,16 @@ class Canvas extends React.Component {
       ctx.drawImage(img, 0, 0, 1080, 1080);
       ctx.font = '32px Courier';
       this.wrapText(ctx, text, 32, 32, 1080, 48);
+      this.watermark(ctx);
     };
   }
+
+  watermark = (context) => {
+    let line = 'gush.surge.sh';
+    let x = 800;
+    let y = 1050;
+    context.fillText(line, x, y);
+  };
 
   wrapText = (context, text, x, y, maxWidth, lineHeight) => {
     var lines = text.split('\n');
@@ -42,13 +54,19 @@ class Canvas extends React.Component {
     }
   };
 
-  downloadImage = (el) => {
+  downloadImage = () => {
+    let downloadLink = document.createElement('a');
+    downloadLink.setAttribute('download', 'GushWriting.png');
     const canvas = this.refs.canvas;
-    var image = canvas.toDataURL('image/jpg');
-    el.href = image;
+    canvas.toBlob(function(blob) {
+      let url = URL.createObjectURL(blob);
+      downloadLink.setAttribute('href', url);
+      downloadLink.click();
+    });
   };
 
   render() {
+    let output = outputFiles[getRandomInt(0, 3)];
     return (
       <div>
         <div className="canvas-container">
@@ -58,14 +76,9 @@ class Canvas extends React.Component {
             width={1080}
             height={1080}
           />
-          <a
-            ref="download"
-            download="gushWriting.jpg"
-            href=""
-            onClick={this.downloadImage.bind(this)}
-          >
-            <button>Download &#8681;</button>
-          </a>
+          <button onClick={this.downloadImage.bind(this)}>
+            Download &#8681;
+          </button>
         </div>
         <img
           ref="image"
