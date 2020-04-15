@@ -9,7 +9,6 @@
 .image {
   border-radius: _size(border-radius);
   border: 0;
-  display: inline-block;
   position: relative;
   vertical-align: middle;
 
@@ -50,10 +49,13 @@
   }
 
   &.main {
+    .refresh {
+      opacity: 0.6;
+    }
     img {
       width: 100%;
       max-width: 280px;
-      margin: 0 12px;
+      margin: 0 auto;
       border: solid 1px rgba(255, 255, 255, 0.1);
       border-radius: 5px;
     }

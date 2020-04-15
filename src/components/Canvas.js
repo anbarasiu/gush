@@ -64,7 +64,7 @@ class Canvas extends React.Component {
             href=""
             onClick={this.downloadImage.bind(this)}
           >
-            <button>&#8681;</button>
+            <button>Download &#8681;</button>
           </a>
         </div>
         <img

@@ -1,8 +1,9 @@
 .canvas-container {
   text-align: center;
   canvas {
-    width: 480px;
-    height: 480px;
+    width: 100%;
+    max-width: 480px;
+    max-height: 480px;
     margin: 12px;
     vertical-align: middle;
   }

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import getRandomInt from '../helper/randomizer';
 import Canvas from './Canvas';
+import Accordion from './Accordion';
 
 function Content({ content, article, articleTimeout, onCloseArticle }) {
   const [prompt, setPrompt] = useState(
@@ -30,27 +31,33 @@ function Content({ content, article, articleTimeout, onCloseArticle }) {
       className={`content active ${articleTimeout ? 'timeout' : ''}`}
     >
       <h2 className="major">{article}</h2>
-      <div className="imageContainer">
-        <span className="image main">
-          <img src={content[prompt].url} alt="" />
-        </span>
-        <span>
-          <button onClick={() => randomize()}>Show me another</button>
-        </span>
-      </div>
-      <textarea
-        onChange={(e) => setText(e.target.value)}
-        className="editor"
-        placeholder="Now go on and write to your heart's content here"
-      ></textarea>
-      <div className="center">
-        <button onClick={() => setIsImageGenerated(true)}>Frame It!</button>
-      </div>
-      {isImageGenerated && (
-        <div className="center">
-          <Canvas text={text} />
+      <Accordion allowMultipleOpen>
+        <div label="Get inspired" className="imageContainer center" isOpen>
+          <div className="image main center">
+            <img src={content[prompt].url} alt="" />
+            <button className="refresh" onClick={() => randomize()}>
+              <span>&#x21bb;</span>
+            </button>
+          </div>
         </div>
-      )}
+        <div label="Write and Frame">
+          <textarea
+            onChange={(e) => setText(e.target.value)}
+            className="editor"
+            placeholder="Now go on and write to your heart's content here"
+          ></textarea>
+          <div className="center">
+            <button onClick={() => setIsImageGenerated(true)}>Frame It!</button>
+          </div>
+        </div>
+        <div label="Download and Share">
+          {isImageGenerated && (
+            <div className="center">
+              <Canvas text={text} />
+            </div>
+          )}
+        </div>
+      </Accordion>
       {close}
     </article>
   );
