@@ -24,8 +24,8 @@ class Canvas extends React.Component {
       const img = this.refs.image;
       if (img) {
         ctx.drawImage(img, 0, 0, 1080, 1080);
-        ctx.font = 'bold 36px Courier';
-        addTextCanvas(ctx, text, 32, 32, 1080, 10);
+        ctx.font = 'bold 48px Courier';
+        addTextCanvas(ctx, text, 32, 32, 1080, 24);
         this.watermark(ctx);
       }
     }
@@ -34,7 +34,7 @@ class Canvas extends React.Component {
 
   watermark = (context) => {
     let line = 'gush.surge.sh';
-    let x = 800;
+    let x = 700;
     let y = 1050;
     context.fillText(line, x, y);
   };
