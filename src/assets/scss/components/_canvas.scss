@@ -7,4 +7,13 @@
     margin: 12px;
     vertical-align: middle;
   }
+
+  button.share {
+    display: none;
+  }
+  @include breakpoint(medium) {
+    button.share {
+      display: inline-block;
+    }
+  }
 }

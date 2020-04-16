@@ -20,9 +20,18 @@ export const share = async (imageUrl) => {
     try {
       let file = convertBase64ToFile(imageUrl, 'GushWriting.png');
       data.files = [file];
-      await navigator.share(data);
-    } catch (e) {
-      console.log(e);
+      const response = await navigator.share(data);
+      if (response && window.analytics) {
+        window.analytics.track('SHARE_SUCCESS', {
+          response,
+        });
+      }
+    } catch (error) {
+      if (window.analytics) {
+        window.analytics.track('SHARE_FAILURE', {
+          error,
+        });
+      }
     }
   }
 };

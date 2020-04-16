@@ -68,9 +68,13 @@ class Canvas extends React.Component {
             width={1080}
             height={1080}
           />
-          <button onClick={this.downloadImage}>Download &#8681;</button>
+          <button className="download" onClick={this.downloadImage}>
+            Download &#8681;
+          </button>
           {isShareAvailable && (
-            <button onClick={this.shareImage}>Share &#9829;</button>
+            <button className="share" onClick={this.shareImage}>
+              Share &#9829;
+            </button>
           )}
         </div>
         {output && (
