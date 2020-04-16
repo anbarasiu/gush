@@ -5,22 +5,17 @@ import output3 from '../images/result3.jpg';
 import output4 from '../images/result4.jpg';
 import getRandomInt from '../helper/randomizer';
 import addTextCanvas from '../helper/addTextCanvas';
+import { isShareAvailable, share } from '../helper/share';
 
 const outputFiles = [output1, output2, output3, output4];
 
 class Canvas extends React.Component {
-  constructor(props) {
-    super(props);
-    this.downloadImage = this.downloadImage.bind(this);
-    this.updateCanvas = this.updateCanvas.bind(this);
-  }
-
   shouldComponentUpdate(newProps) {
     let { shouldFrame } = newProps;
     return shouldFrame;
   }
 
-  updateCanvas() {
+  updateCanvas = () => {
     const { text } = this.props;
     let { isFrameUpdated } = this.props;
     const canvas = this.refs.canvas;
@@ -35,7 +30,7 @@ class Canvas extends React.Component {
       }
     }
     isFrameUpdated();
-  }
+  };
 
   watermark = (context) => {
     let line = 'gush.surge.sh';
@@ -55,6 +50,12 @@ class Canvas extends React.Component {
     });
   };
 
+  shareImage = () => {
+    const canvas = this.refs.canvas;
+    let url = canvas.toDataURL('image/png');
+    share(url);
+  };
+
   render() {
     let output = outputFiles[getRandomInt(0, 3)];
     this.updateCanvas();
@@ -67,9 +68,10 @@ class Canvas extends React.Component {
             width={1080}
             height={1080}
           />
-          <button onClick={this.downloadImage.bind(this)}>
-            Download &#8681;
-          </button>
+          <button onClick={this.downloadImage}>Download &#8681;</button>
+          {isShareAvailable && (
+            <button onClick={this.shareImage}>Share &#9829;</button>
+          )}
         </div>
         {output && (
           <img

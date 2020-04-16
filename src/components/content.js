@@ -4,7 +4,7 @@ import getRandomInt from '../helper/randomizer';
 import Canvas from './Canvas';
 import Accordion from './Accordion';
 
-function Content({ content, article, articleTimeout, onCloseArticle }) {
+function Content({ content = [], article, articleTimeout, onCloseArticle }) {
   const [prompt, setPrompt] = useState(
     getRandomInt(0, content && content.length)
   );
@@ -29,6 +29,10 @@ function Content({ content, article, articleTimeout, onCloseArticle }) {
     setShouldFrame(false);
   };
 
+  let isContentAvailable = () => {
+    return content.length > 0 && content[prompt];
+  };
+
   return (
     <article
       id="content"
@@ -38,7 +42,7 @@ function Content({ content, article, articleTimeout, onCloseArticle }) {
       <Accordion allowMultipleOpen>
         <div label="Get inspired" className="imageContainer center" isOpen>
           <div className="image main center">
-            <img src={content[prompt].url} alt="" />
+            {isContentAvailable && <img src={content[prompt].url} alt="" />}
             <button className="refresh" onClick={() => randomize()}>
               <span>&#x21bb;</span>
             </button>
