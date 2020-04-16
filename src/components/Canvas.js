@@ -24,8 +24,8 @@ class Canvas extends React.Component {
       const img = this.refs.image;
       if (img) {
         ctx.drawImage(img, 0, 0, 1080, 1080);
-        ctx.font = '32px Courier';
-        addTextCanvas(ctx, text, 32, 32, 1080, 48);
+        ctx.font = 'bold 36px Courier';
+        addTextCanvas(ctx, text, 32, 32, 1080, 10);
         this.watermark(ctx);
       }
     }
