@@ -3,15 +3,15 @@ import output1 from '../images/result1.jpg';
 import output2 from '../images/result2.jpg';
 import output3 from '../images/result3.jpg';
 import output4 from '../images/result4.jpg';
-import output1 from '../images/result5.jpg';
-import output2 from '../images/result6.jpg';
-import output3 from '../images/result7.jpg';
-import output4 from '../images/result8.jpg';
-import output1 from '../images/result9.jpg';
-import output2 from '../images/result10.jpg';
-import output3 from '../images/result11.jpg';
-import output4 from '../images/result12.jpg';
-import output4 from '../images/result13.jpg';
+import output5 from '../images/result5.jpg';
+import output6 from '../images/result6.jpg';
+import output7 from '../images/result7.jpg';
+import output8 from '../images/result8.jpg';
+import output9 from '../images/result9.jpg';
+import output10 from '../images/result10.jpg';
+import output11 from '../images/result11.jpg';
+import output12 from '../images/result12.jpg';
+import output13 from '../images/result13.jpg';
 import getRandomInt from '../helper/randomizer';
 import addTextCanvas from '../helper/addTextCanvas';
 import { isShareAvailable, share } from '../helper/share';
@@ -80,7 +80,8 @@ class Canvas extends React.Component {
   };
 
   render() {
-    let output = outputFiles[getRandomInt(0, 3)];
+    let limit = (outputFiles && outputFiles.length - 1) || 0;
+    let output = outputFiles[getRandomInt(0, limit)];
     this.updateCanvas();
     return (
       <div>
