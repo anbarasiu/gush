@@ -3,11 +3,34 @@ import output1 from '../images/result1.jpg';
 import output2 from '../images/result2.jpg';
 import output3 from '../images/result3.jpg';
 import output4 from '../images/result4.jpg';
+import output1 from '../images/result5.jpg';
+import output2 from '../images/result6.jpg';
+import output3 from '../images/result7.jpg';
+import output4 from '../images/result8.jpg';
+import output1 from '../images/result9.jpg';
+import output2 from '../images/result10.jpg';
+import output3 from '../images/result11.jpg';
+import output4 from '../images/result12.jpg';
+import output4 from '../images/result13.jpg';
 import getRandomInt from '../helper/randomizer';
 import addTextCanvas from '../helper/addTextCanvas';
 import { isShareAvailable, share } from '../helper/share';
 
-const outputFiles = [output1, output2, output3, output4];
+const outputFiles = [
+  output1,
+  output2,
+  output3,
+  output4,
+  output5,
+  output6,
+  output7,
+  output8,
+  output9,
+  output10,
+  output11,
+  output12,
+  output13,
+]; //Gotta make this better already!
 
 class Canvas extends React.Component {
   shouldComponentUpdate(newProps) {
