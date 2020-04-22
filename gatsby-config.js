@@ -10,7 +10,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'Gush',
-        short_name: 'starter',
+        short_name: 'Gush',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#663399',

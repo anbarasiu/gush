@@ -62,7 +62,15 @@ function Contribute(props) {
                 starter - Dimension
               </li>
               <li>Prompts aggregated from Pinterest </li>
-              <li>Template images from Unsplash </li>
+              <li>
+                Template images from{' '}
+                <ExternalLink
+                  link="https://unsplash.com/collections/9972615/gush"
+                  title="Unsplash"
+                >
+                  Unsplash
+                </ExternalLink>{' '}
+              </li>
               <li>
                 Icon by{' '}
                 <ExternalLink
