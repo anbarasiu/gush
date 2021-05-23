@@ -15,7 +15,7 @@ const convertBase64ToFile = (dataurl, filename) => {
 };
 
 export const share = async (imageUrl) => {
-  let data = { title: 'Gush' };
+  let data = { title: 'Gush', text: '' };
   if (isShareAvailable) {
     try {
       let file = convertBase64ToFile(imageUrl, 'GushWriting.png');
@@ -35,3 +35,21 @@ export const share = async (imageUrl) => {
     }
   }
 };
+
+async function shareInstagram(e) {
+  e.preventDefault();
+  let data = { title: 'Poppins', text: 'Buy now from Poppins' };
+  if (isShareAvailable) {
+    try {
+      var res = await fetch("https:{{share_image | img_url: '1080x1080'}}");
+      var blob = await res.blob();
+      const file = new File([blob], 'poppins.png', blob);
+      data.files = [file];
+      const response = await navigator.share(data);
+    } catch (error) {
+      console.log('Share failed');
+    }
+  } else {
+    window.location = 'instagram://share';
+  }
+}
