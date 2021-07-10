@@ -9,7 +9,7 @@ const Footer = (props) => (
     </p>
     <p className="copyright">
       &copy;
-      <a href="https://www.twitter.com/anbarasiu">@anbarasiu</a>
+      <a href="mailto:hi@anbuu.in">Say Hello!</a>
     </p>
   </footer>
 );
