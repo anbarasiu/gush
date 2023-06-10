@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Anbarasi U",
   "dependencies": {
-    "gatsby": "^2.19.5",
+    "gatsby": "^4.25.7",
     "gatsby-plugin-manifest": "^2.2.38",
     "gatsby-plugin-offline": "^3.1.4",
     "gatsby-plugin-react-helmet": "^3.1.21",
