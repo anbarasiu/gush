@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gush - Writing Inspiration Prompts by Anbarasi U',
+    title: 'Gush - Writing Inspiration Prompts',
     author: 'Anbarasi U',
-    description: 'Gush is a writing inspiration prompts app by Anbarasi U to help writers overcome writer\'s block with creative prompts and ideas.',
+    description: 'Gush is a writing inspiration prompts app to help writers overcome writer\'s block with creative prompts and ideas.',
     siteUrl: 'https://gush.anbuu.in',
     keywords: 'writing prompts, creative writing, writer\'s block, inspiration, Anbarasi U, Anbu, writing app, creative prompts, storytelling, poetry prompts, writing inspiration',
     social: {
