@@ -1,0 +1,36 @@
+# robots.txt for gush.anbuu.in
+# Allow all search engines and AI crawlers
+
+User-agent: *
+Allow: /
+
+# AI and LLM Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# Sitemap
+Sitemap: https://gush.anbuu.in/sitemap.xml
+
+# Crawl-delay (polite crawling)
+Crawl-delay: 1

@@ -1,8 +1,8 @@
 {
   "name": "gush",
-  "description": "Gush - Let the words flow",
+  "description": "Writing inspiration prompts app to help writers overcome writer's block",
   "version": "1.0.0",
-  "author": "Anbarasi U",
+  "author": "Anbarasi U <hi@anbuu.in>",
   "dependencies": {
     "gatsby": "^2.19.5",
     "gatsby-plugin-manifest": "^2.2.38",
@@ -16,7 +16,13 @@
     "react-helmet": "^5.2.1"
   },
   "keywords": [
-    "gatsby"
+    "writing-prompts",
+    "creative-writing",
+    "writers-block",
+    "inspiration",
+    "writing-app",
+    "gatsby",
+    "pwa"
   ],
   "license": "MIT",
   "scripts": {
@@ -31,6 +37,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/anbarasiu/gush"
   }
 }

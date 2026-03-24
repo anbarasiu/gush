@@ -1,8 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gush - Lets the words flow',
+    title: 'Gush - Writing Inspiration Prompts',
     author: 'Anbarasi U',
-    description: "Let's get the creative juices flowing",
+    description: 'Gush is a writing inspiration prompts app to help writers overcome writer\'s block with creative prompts and ideas.',
+    siteUrl: 'https://gush.anbuu.in',
+    keywords: 'writing prompts, creative writing, writer\'s block, inspiration, Anbarasi U, Anbu, writing app, creative prompts, storytelling, poetry prompts, writing inspiration',
+    social: {
+      twitter: 'anbarasiu',
+      github: 'anbarasiu',
+    },
   },
   plugins: [
     'gatsby-plugin-react-helmet',
